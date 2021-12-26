@@ -27,8 +27,29 @@ function processData(data) {
 }
 
 
+function renderToPage(dataObj) {
+  city.textContent = dataObj.cityName
+  temp.textContent = dataObj.currentTemp
+  highTemp.textContent = dataObj.maxTemp
+  lowTemp.textContent = dataObj.minTemp
+
+
+
+}
+
+
+const city = document.querySelector('.city')
+const temp = document.querySelector('.current-temp')
+const weatherDesciption = document.querySelector('.temp-description')
+const icon = document.querySelector('.icon')
+const highTemp = document.querySelector('.high')
+const lowTemp = document.querySelector('.low')
+
+
 const unprocessedData = getData('dallas', 'texas') 
 
-const weatherDataObj = unprocessedData.then(data => processData(data))
-                      .then(obj => console.log(obj))
+const weatherData = unprocessedData.then(data => processData(data))
+                      .then(obj => {
+                        renderToPage(obj)
+                      }).catch(err => console.error(err))
 

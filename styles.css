@@ -1,0 +1,58 @@
+body {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-app {
+border: 1px solid black;
+display: inline-block;
+
+}
+
+.title {
+  font-size: 3rem;
+  padding: 0 20px 5px;
+}
+
+
+.weather-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.left-side {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 1px solid blue; */
+}
+
+
+.temp-section {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.temp-description {
+  font-size: 1.3rem;
+}
+
+.right-side {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid green; */
+}
+
+img {
+  
+  /* border: 1px solid red; */
+}
+
+.high-low {
+  font-size: 1.3rem;
+  /* border: 1px solid yellowgreen; */
+}
