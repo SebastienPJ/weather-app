@@ -7,7 +7,7 @@
 
 [Live Page](https://sebastienpj.github.io/weather-app/)
 
-A weather app that allows you to look up the weather of a desired city in either Celsius of Fahrenheit. It uses the Openweathermap API.
+A weather app that allows you to look up the weather of a desired city in either Celsius or Fahrenheit. It uses the Openweathermap API.
 
 
 Topics learned/reinforced:
