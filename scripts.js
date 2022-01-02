@@ -124,7 +124,7 @@ tempOptions.forEach(option => {
 
     this.classList.add('temp-selected')
 
-    if (this.textContent == 'C') {
+    if (this.textContent == '°C') {
       const currentTempC = convertToCelsius(processedData.currentTemp);
       const highTempC = convertToCelsius(processedData.maxTemp);
       const lowTempC = convertToCelsius(processedData.minTemp);
