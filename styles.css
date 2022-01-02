@@ -16,9 +16,15 @@ li {
   margin: 5px 0;
 }
 
+.app-container {
+  margin-top: 20px;
+  /* display: flex; */
+  border: 1px solid green;
+}
+
 .weather-app {
 border: 1px solid black;
-display: inline-block;
+display: none;
 
 }
 
@@ -51,6 +57,19 @@ display: inline-block;
 .temp-description {
   font-size: 1.3rem;
 }
+
+.temp-options {
+  border: none;
+  padding: 3px 6px;
+  cursor: pointer;
+}
+
+
+.temp-selected {
+  background-color: grey;
+  border: 1px solid black;
+}
+
 
 .right-side {
   padding: 20px;
