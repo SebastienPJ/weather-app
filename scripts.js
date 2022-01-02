@@ -1,67 +1,6 @@
-let states = ["", "Alaska",
-              "Alabama",
-              "Arkansas",
-              "American Samoa",
-              "Arizona",
-              "California",
-              "Colorado",
-              "Connecticut",
-              "District of Columbia",
-              "Delaware",
-              "Florida",
-              "Georgia",
-              "Guam",
-              "Hawaii",
-              "Iowa",
-              "Idaho",
-              "Illinois",
-              "Indiana",
-              "Kansas",
-              "Kentucky",
-              "Louisiana",
-              "Massachusetts",
-              "Maryland",
-              "Maine",
-              "Michigan",
-              "Minnesota",
-              "Missouri",
-              "Mississippi",
-              "Montana",
-              "North Carolina",
-              " North Dakota",
-              "Nebraska",
-              "New Hampshire",
-              "New Jersey",
-              "New Mexico",
-              "Nevada",
-              "New York",
-              "Ohio",
-              "Oklahoma",
-              "Oregon",
-              "Pennsylvania",
-              "Puerto Rico",
-              "Rhode Island",
-              "South Carolina",
-              "South Dakota",
-              "Tennessee",
-              "Texas",
-              "Utah",
-              "Virginia",
-              "Virgin Islands",
-              "Vermont",
-              "Washington",
-              "Wisconsin",
-              "West Virginia",
-              "Wyoming"
-];
-
-
-            
-
-
-async function getData(city, state) {
+async function getData(city) {
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${state}&units=imperial&appid=3ca02677eec4ac8a96141272e96128a2`, { mode: 'cors' });
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=3ca02677eec4ac8a96141272e96128a2`, { mode: 'cors' });
     const rawData = await response.json();
     console.log(rawData);
   
@@ -93,6 +32,12 @@ function processData(data) {
 
 function renderToPage(dataObj) {
 
+  tempOptions.forEach(option => {
+    option.classList.remove('temp-selected')
+  })
+  fahrenheitButton.classList.add('temp-selected')
+
+
   city.textContent = dataObj.cityName;
   temp.textContent = dataObj.currentTemp;
   highTemp.textContent = dataObj.maxTemp;
@@ -112,17 +57,9 @@ function convertToCelsius(degreeF) {
 
 
 
-const statesTag = document.querySelector('#state');
-states.forEach(state => {
-  const newOption = document.createElement('option');
-  newOption.textContent = state;
-  statesTag.appendChild(newOption);
-});
-
-
-
 let processedData;
-
+const fahrenheitButton = document.querySelector('.fahrenheit')
+const appContainer = document.querySelector('.app-container')
 const app = document.querySelector('.weather-app');
 const city = document.querySelector('.city');
 const temp = document.querySelector('.current-temp');
@@ -141,7 +78,7 @@ submitButton.addEventListener('click', function(e) {
   const cityChosen = formData.get('city');
   const stateChosen = formData.get('state');
 
-  getData(cityChosen, stateChosen)
+  getData(cityChosen)
       .then(unprocessedData => processData(unprocessedData))
       .then(obj => {
         renderToPage(obj)
@@ -179,23 +116,6 @@ tempOptions.forEach(option => {
     
   })
 })
-
-
-
-
-
-
-
-
-
-
-// const unprocessedData = getData('dallas', 'texas') 
-
-// const weatherData = unprocessedData.then(data => processData(data))
-//                       .then(obj => {
-//                         renderToPage(obj)
-//                       }).catch(err => console.error(err))
-
 
 
 
