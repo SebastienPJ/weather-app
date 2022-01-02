@@ -1,29 +1,41 @@
 body {
   box-sizing: border-box;
-  /* display: flex; */
-  /* justify-content: center; */
-}
-
-.form {
-  
-  /* display: inline-flex; */
-  /* flex-direction: column; */
-  border: 1px solid purple;
 }
 
 li {
   list-style: none;
-  margin: 5px 0;
+  margin: 10px 0;
+}
+
+.submit {
+  border: 2px solid rgb(155, 213, 221);
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+
+  
+}
+
+.submit:hover{
+  background-color: rgb(155, 213, 221);
+  border: 2px solid black;
 }
 
 .app-container {
   margin-top: 20px;
-  /* display: flex; */
-  border: 1px solid green;
+}
+
+.error-container {
+  display: none;
+}
+
+.error-message {
+  font-size: 2rem;
 }
 
 .weather-app {
-border: 1px solid black;
+border: 2px solid black;
 display: none;
 
 }
@@ -31,6 +43,7 @@ display: none;
 .title {
   font-size: 3rem;
   padding: 0 20px 5px;
+  text-align: center;
 }
 
 
@@ -42,10 +55,7 @@ display: none;
 
 .left-side {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* border: 1px solid blue; */
+  display: block;
 }
 
 
@@ -56,6 +66,7 @@ display: none;
 
 .temp-description {
   font-size: 1.3rem;
+  padding: 5px 0;
 }
 
 .temp-options {
@@ -73,17 +84,14 @@ display: none;
 
 .right-side {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  /* border: 1px solid green; */
+  display: block;
+  text-align: center;
 }
 
 img {
-  
-  /* border: 1px solid red; */
+  width: 10rem;
 }
 
 .high-low {
   font-size: 1.3rem;
-  /* border: 1px solid yellowgreen; */
 }

@@ -15,17 +15,28 @@
         <input type="text" name="city" id="city">
       </li>
 
+      <li>
+        <button type="submit" class="submit">Check Weather</button>
+      </li>
+
     </ul>  
 
-    <button type="submit" class="submit">Check Weather</button>
+   
   </form>
 
   <div class="app-container">
+
+    <div class="error-container">
+      <p class="error-message"></p>
+    </div>
+    
     <div class="weather-app">
       <div class="title">Weather in <span class="city"></span></div>
       <div class="weather-details">
         <div class="left-side">
-          <div class="temp-section"><span class="current-temp"></span>°</div>
+          <div class="temp-section">
+            <p><span class="current-temp"></span></span>°</p>
+          </div>
           <div class="temp-description"></div>
           <div>
             <button class="celsius temp-options">C</button>
@@ -35,7 +46,7 @@
         </div>
         <div class="right-side">
           <img src="images/10d@2x.png" class="icon">
-          <div class="high-low">High <span class="high"></span>/Low <span class="low"></span></div>
+          <div class="high-low">High <span class="high"></span>/ Low <span class="low"></span></div>
         </div>
       </div>
     </div>
