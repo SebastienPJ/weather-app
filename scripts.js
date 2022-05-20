@@ -1,6 +1,6 @@
 async function getData(city) {
   const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=3ca02677eec4ac8a96141272e96128a2`, { mode: 'cors' });
-  const rawData = await response.json();
+  const rawData = response.json();
   
   return rawData
     
@@ -97,19 +97,19 @@ const lowTemp = document.querySelector('.low');
 
 const form = document.querySelector(".form");
 const submitButton = document.querySelector('.submit');
-submitButton.addEventListener('click', function(e) {
+submitButton.addEventListener('click', async function(e) {
   e.preventDefault();
 
   const formData = new FormData(form);
 
   const cityChosen = formData.get('city');
 
-  getData(cityChosen)
-      .then(unprocessedData =>  processData(unprocessedData))
-      .then(obj => {
-        renderToPage(obj)
-        processedData = obj
-      })
+  const unprocessedData = await getData(cityChosen)
+  
+  processedData = processData(unprocessedData)
+
+  renderToPage(processedData)
+
 
   form.reset();
 })
